@@ -4,13 +4,14 @@
         p Let's go
         p You need a break!
         br
-        form.input-group.input-group-lg(name="form", onsubmit="return numOfDaysForm()")
-            input.form-control(name="input", type="text", placeholder="# of Days", aria-describedby="sizing-addon")
+        form.input-group.input-group-lg.hidden(name="form", onsubmit="return numOfDaysForm()")
+            input.form-control(name="input", type="text", placeholder="To Where?", aria-describedby="sizing-addon")
             span.input-group-btn
                     button.btn.btn-default(type="button")
                         span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+        br
         form.input-group.input-group-lg(name="form", onsubmit="")
-            input.form-control(name="input", type="text", placeholder="# of Days", aria-describedby="sizing-addon")
+            input.form-control(name="input", type="text", placeholder="How long? (Days)", aria-describedby="sizing-addon")
             span.input-group-btn
                     button.btn.btn-default(type="button")
                         span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
