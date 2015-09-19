@@ -90,7 +90,7 @@ ul.active {
 }
 
 .cb-slideshow li:nth-child(3) span {
-    background-image: url(..images/savanah.jpg);
+    background-image: url(../images/savanah.jpg);
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
@@ -99,7 +99,7 @@ ul.active {
 }
 
 .cb-slideshow li:nth-child(4) span {
-    background-image: url(..images/beach.jpg);
+    background-image: url(../images/beach.jpg);
     background-size: 100% auto;
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
@@ -109,7 +109,7 @@ ul.active {
 }
 
 .cb-slideshow li:nth-child(5) span {
-    background: url(..images/mountian.jpg);
+    background: url(../images/mountian.jpg);
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
@@ -118,7 +118,7 @@ ul.active {
 }
 
 .cb-slideshow li:nth-child(6) span {
-    background-image: url(..images/savanah.jpg);
+    background-image: url(../images/savanah.jpg);
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -o-animation-delay: 30s;
