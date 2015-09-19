@@ -48,6 +48,7 @@ a {
 @media (min-width:768px){
     #content{
         font-weight:bold;
+        width:350px;
     }
     #content p:nth-of-type(1){
         font-size:60px;
