@@ -1,11 +1,14 @@
 //- includes/body.jade
 #wrapper.container
     div#content
-        p Let's go!
+        p Let's go
         p You need a break!
         br
-        div.input-group.input-group-lg
-            input.form-control(type="text", placeholder="# of Days", aria-describedby="sizing-addon")
+        form.input-group.input-group-lg(name="form", onsubmit="return numOfDaysForm()")
+            input.form-control(name="input", type="text", placeholder="# of Days", aria-describedby="sizing-addon")
             span.input-group-btn
-                button.btn.btn-default(type="button")
-                    span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+                    button.btn.btn-default(type="button")
+                        span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+            span.input-group-btn
+                    button.btn.btn-default(type="button")
+                        span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
