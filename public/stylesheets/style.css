@@ -29,18 +29,27 @@ a {
     border-radius:10px;
     padding:25px 0px;
 }
-
-#content h1{
+#content p{
     margin:0 auto;
     margin-top:15px;
+}
+#content p:nth-of-type(1){
+    font-size:20px;
+}
+
+#content p:nth-of-type(2){
+    font-size:10px;
 }
 
 .input-group{
     margin:0 auto;
 }
-@media (max-width:768px){
-    body {font-size:2em;}
-    #content{
-        width:500px;
+
+@media (min-width:768px){
+    #content p:nth-of-type(1){
+        font-size:40px;
+    }
+    #content p:nth-of-type(2){
+        font-size:20px;
     }
 }
