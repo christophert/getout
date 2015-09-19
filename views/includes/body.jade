@@ -1,6 +1,11 @@
 //- includes/body.jade
+mixin list
+    li span
+ul
+    - for (var i = 0; i < 6; i++)
+        +list
+        
 #wrapper.container
-    &nbsp;
     div#content(class='')
         h1 Let's go!
         h4 You need a break!
