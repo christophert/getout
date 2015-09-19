@@ -39,7 +39,7 @@ a {
     margin:0 auto;
 }
 @media (max-width:768px){
-    body {font-size:2em;
+    body {font-size:2em;}
     #content{
         width:500px;
     }
