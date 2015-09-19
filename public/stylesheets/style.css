@@ -38,6 +38,9 @@ a {
 .input-group{
     margin:0 auto;
 }
-@media (min-width:768px){
-
+@media (max-width:768px){
+    body {font-size:2em;
+    #content{
+        width:500px;
+    }
 }
