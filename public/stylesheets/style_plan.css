@@ -36,20 +36,23 @@ a {
     text-align:left;
 }
 
-.tile, .tile-airplane, .tile-hotel, .tile-food, .tile-poi{
+.tile-airplane, .tile-hotel, .tile-food, .tile-poi
+.tile{
     width:100%;
     height:300px;
-    float:left;
+    clear:both;
 }
 
-.tile_icon, .tile_icon-airplane, .tile_icon-hotel, .tile_icon-food, .tile_icon-poi{
+.tile_icon-airplane, .tile_icon-hotel, .tile_icon-food, .tile_icon-poi,
+.tile_icon{
     width:150px;
     min-height:150px;
     background: rgba(255,255,255,0.5);
     float left;
 }
 
-.tile_content, .tile_content-airplane, .tile_content-hotel, .tile_content-food, .tile_content-poi{ {
+.tile_content-airplane, .tile_content-hotel, .tile_content-food, .tile_content-poi
+.tile_content{
     width:calc(100%-300px); /*calculates width based on total-icon size*/
     height:100%;
     float left;
