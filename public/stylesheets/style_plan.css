@@ -9,12 +9,12 @@ a {
 }
 
 #wrapper{
-    background: url(../images/Mountian.jpg) no-repeat center bottom;
+    background: url(../images/city.jpg) no-repeat center bottom fixed;
     background-size: cover;
     width:100%;
     height:100%;
     overflow:hidden;
-    min-height:1200px;
+    /*min-height:1200px;*/
     padding:10px;
 }
 
@@ -22,34 +22,65 @@ a {
     font-family: 'Muli', sans-serif;
     margin: 0 auto;
     width: 768px;
-    text-align:center;
+    /*text-align:center;*/
     font-weight:bold;
     color: black;
-    background: rgba(0,0,0,0.25);
+    background: rgba(255,255,255,0.5);
     border-radius:10px;
     padding:25px 0px;
 }
-
-.tile{
-    width:100%;
-    height:300px;
-    position:relative;
+#tab_holder div{
+    margin-top:50px;
+    font-size:20px;
+    text-align:left;
 }
 
-.tile_icon{
+.tile, .tile-airplane, .tile-hotel, .tile-food, .tile-poi{
+    width:100%;
+    height:300px;
+    float:left;
+}
+
+.tile_icon, .tile_icon-airplane, .tile_icon-hotel, .tile_icon-food, .tile_icon-poi{
     position:absolute;
     top:0px;
     /*square tiles*/
-    width:300px;
-    height:300px;
-    background: rgba(0,0,0,0.15);
+    width:150px;
+    min-height:150px;
+    background: rgba(255,255,255,0.5);
     float left;
 }
 
-.tile_content {
+.tile_content, .tile_content-airplane, .tile_content-hotel, .tile_content-food, .tile_content-poi{ {
     width:calc(100%-300px); /*calculates width based on total-icon size*/
     height:100%;
     float left;
+}
+
+.top{
+    width:100%;
+    height:33%;
+}
+.middle{
+    width:100%;
+    height:33%;
+}
+.bottom{
+    width:100%;
+    height:33%;
+}
+
+div p{
+    float:left;
+}
+div p:nth-of-type(1){
+    float:left;
+}
+div p:nth-of-type(2){
+    float:left;
+}
+div p:nth-of-type(3){
+    float:left;
 }
 
 /*AIRPLANE*/
