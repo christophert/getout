@@ -1,5 +1,10 @@
 jQuery(document).ready(function() {
-    var location = document.getElementsByName('input')[0].value;
-    var numOfDays = document.getElementsByName('input')[1].value;
-    $("#trigger").click().attr("onclick","location.herf='/plan';");
+    $("form").submit(function(e){
+        var clicked = $(e.target);
+        var location = document.getElementsByName('input')[0].value;
+        var numOfDays = document.getElementsByName('input')[1].value;
+        if(clicked) {
+            (document).load('/plan?' + numberOfDays + '&to=' + location);
+        }
+    });
 });
