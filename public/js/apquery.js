@@ -14,7 +14,13 @@ var getUrlParam = function GetURLParameter(sParam) {
 }
 
 var fromLoc = "ithaca"
-var to = getUrlParam('loc');
+var to;
+if(!getUrlParam('loc')) {
+	to = 'san francisco';
+}
+else {
+	to = getUrlParam('loc');
+}
 var howlong = getUrlParam('time');
 
 $.ajax({
