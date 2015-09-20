@@ -1,10 +1,13 @@
 //query backend API
 
-	
+
+var fromLoc = "ithaca"
+var to = getUrlParam('loc');
+var howlong = getUrlParam('time');
 
 $.ajax({
 	type: "GET",
-	url: "https://aggregate.gogogogo.co/yolo/yolo/5/rochester/pittsburgh",
+	url: "https://aggregate.gogogogo.co/yolo/yolo/"+howlong+"/"+fromLoc+"/"+to,
 	timeout: 10000,
 	success: function(r) {
 		console.log(r);
@@ -60,3 +63,17 @@ $.ajax({
 		return textStatus;
 	}
 });
+
+
+var getUrlParam = function GetURLParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}
