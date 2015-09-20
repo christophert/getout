@@ -25,16 +25,36 @@ $.ajax({
 			$("p#cityName").html(hotel.address.cityName);
 			$("p#stateCode").html(hotel.address.stateCode);
 		});
-		var eat = r.places.food;
+		var eat = r.places.food[0];
 		$("#tag_holder div:nth-of-type(3)").ready(function() {
 			$("p#fname").html(eat.name);
 			$("p#faddress").html(eat.address);
 		});
-		var poi = r.places.poi;
+		
+		var poi = r.places.poi[0];
 		$("#tag_holder div:nth-of-type(4)").ready(function() {
 			$("p#pname").html(poi.name);
 			$("p#paddress").html(poi.address);
 		});
+		
+		var eat2 = r.places.food[1];
+		$("#tag_holder div:nth-of-type(6)").ready(function() {
+			$("p#fname1").html(eat.name);
+			$("p#faddress1").html(eat.address);
+		});
+		
+		var poi2 = r.places.poi[1];
+		$("#tag_holder div:nth-of-type(7)").ready(function() {
+			$("p#pname1").html(poi.name);
+			$("p#paddress1").html(poi.address);
+		});
+		
+		var eat3 = r.places.food[2];
+		$("#tag_holder div:nth-of-type(8)").ready(function() {
+			$("p#fname2").html(eat.name);
+			$("p#faddress2").html(eat.address);
+		});
+		
 	},
 	error: function(xhr, textStatus, errorThrown) {
 		return textStatus;
