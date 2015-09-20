@@ -27,13 +27,13 @@ if($("#thisshouldonlybeavailableonplan").length) {
 			success: function(r) {
 				console.log(r);
 				$("div#header").html("Your trip from " + r.from + " to " + r.to + "!");
-				var tripsegment = r.flights[0].tripSegment;
+				var inboundtrip = r.flights.inbound[0].tripSegment;
 				$("#tag_holder div:nth-of-type(1)").ready(function() {
-					$("p#flightId").html(tripsegment[0][0].flightID);
-					$("p#airline").html(tripsegment[0][0].airline);
-					$("p#fltno").html(tripsegment[0][0].fltno);
-					$("p#depart").html(tripsegment[0][0].depart);
-					$("p#arrival").html(tripsegment[1][0].arrival);
+					$("p#flightId").html(inboundtrip[0][0].flightID);
+					$("p#airline").html(inboundtrip[0][0].airline);
+					$("p#fltno").html(inboundtrip[0][0].fltno);
+					$("p#depart").html(inboundtrip[0][0].depart);
+					$("p#arrival").html(inboundtrip[1][0].arrival);
 					
 				});
 				var hotel = r.hotel;
@@ -73,6 +73,13 @@ if($("#thisshouldonlybeavailableonplan").length) {
 					$("p#fname2").html(eat3.name);
 					$("p#faddress2").html(eat3.address);
 				});
+				var outboundtrip = r.flights.outbound[0].tripSegment;
+				$("#tag_holder div:nth-of-type(9)").ready(function() {
+					$("p#flightId").html(outboundtrip[0][0].flightID);
+					$("p#airline").html(outboundtrip[0][0].airline);
+					$("p#fltno").html(outboundtrip[0][0].fltno);
+					$("p#depart").html(outboundtrip[0][0].depart);
+					$("p#arrival").html(outboundtrip[1][0].arrival);
 				var cost = r.totalCost;
 				$("p#price").ready(function() {
 					$("p#price").html(cost);
