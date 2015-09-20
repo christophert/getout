@@ -79,7 +79,13 @@ router.get('/hotels/:coordinates/:start/:end', function(req, res, next) {
 		var hotelResp = JSON.parse(body);
 		
 		var sortedPrice = hotelResp["priceSorted"];
-		var firstElement = hotelResp["hotels"][sortedPrice[0]];
+		var availableHotels = [];
+		for(var i = 0; i < sortedPrice.length; i++) {
+			if(hotelResp["hotels"][sortedPrice[i]].remainingRooms > 0) {
+				availableHotels.push(sortedPrice[i]);
+			}
+		}
+		var firstElement = hotelResp["hotels"][availableHotels[0]];
 		res.send({
 			'name': firstElement.hotelName,
 			'price': firstElement.merchPrice,
@@ -116,4 +122,10 @@ router.get('/places/:loc/:query', function(req, res, next) {
 
 });
 
+router.get('/yolo/:days/:from/:to', function(req, res, next) {
+	var days = req.params.days;
+	var whereToGo = req.params.whereToGo;
+	
+	var flights = request('/api/flights')
+})
 module.exports = router;
