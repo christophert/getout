@@ -75,11 +75,11 @@ if($("#thisshouldonlybeavailableonplan").length) {
 				});
 				var outboundtrip = r.flights.outbound[0].tripSegment;
 				$("#tag_holder div:nth-of-type(9)").ready(function() {
-					$("p#flightId").html(outboundtrip[0][0].flightID);
-					$("p#airline").html(outboundtrip[0][0].airline);
-					$("p#fltno").html(outboundtrip[0][0].fltno);
-					$("p#depart").html(outboundtrip[0][0].depart);
-					$("p#arrival").html(outboundtrip[1][0].arrival);
+					$("p#flightId1").html(outboundtrip[0][0].flightID);
+					$("p#airline1").html(outboundtrip[0][0].airline);
+					$("p#fltno1").html(outboundtrip[0][0].fltno);
+					$("p#depart1").html(outboundtrip[0][0].depart);
+					$("p#arrival1").html(outboundtrip[1][0].arrival);
 				});
 				var cost = r.totalCost;
 				$("p#price").ready(function() {
