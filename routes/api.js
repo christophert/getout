@@ -47,7 +47,6 @@ router.get('/flights/:from/:to/:start/:end/:limit', function(req, res, next) {
 			
 			var flights = _.map(sliceMap, function(slice) {
 				
-				console.log(_.filter(itineraries, {'id': slice.uniqueSliceId})[0].fare);
 				var fullSegment = [];
 				var flightduration = 0;
 				for (var i = 0; i < slice.segment.length; i++) {
