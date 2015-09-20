@@ -87,14 +87,17 @@ div p:nth-of-type(3){
 /*AIRPLANE*/
 
 .tile-airplane{
+    float:left;
     background: rgba(188,184,255,0.15);
     &nbsp;
 }
 .tile_icon-airplane{
+    float:left;
     background: rgba(188,184,255,0.25);
     &nbsp;
 }
 .tile_content-airplane{
+    float:left;
     background: rgba(188,184,255,0.10);
     &nbsp;
 }
@@ -104,14 +107,17 @@ div p:nth-of-type(3){
 /*HOTEL*/
 
 .tile-hotel{
+    float:left;
     background: rgba(230,255,120,0.15);
     &nbsp;
 }
 .tile_icon-hotel{
+    float:left;
     background: rgba(230,255,120,0.25);
     &nbsp;
 }
 .tile_content-hotel{
+    float:left;
     background: rgba(230,255,120,0.10);
     &nbsp;
 }
@@ -121,14 +127,17 @@ div p:nth-of-type(3){
 /*FOOD*/
 
 .tile-food{
+    float:left;
     background: rgba(232,108,139,0.15);
     &nbsp;
 }
 .tile_icon-food{
+    float:left;
     background: rgba(232,108,139,0.25);
     &nbsp;
 }
 .tile_content-food{
+    float:left;
     background: rgba(232,108,139,0.10);
     &nbsp;
 }
@@ -138,14 +147,17 @@ div p:nth-of-type(3){
 /*POI*/
 
 .tile-poi{
+    float:left;
     background: rgba(133,232,206,0.15);
     &nbsp;
 }
 .tile_icon-poi{
+    float:left;
     background: rgba(133,232,206,0.25);
     &nbsp;
 }
 .tile_content-poi{
+    float:left;
     background: rgba(133,232,206,0.10);
     &nbsp;
 }
