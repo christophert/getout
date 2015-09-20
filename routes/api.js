@@ -21,6 +21,7 @@ router.get('/flights/:from/:to/:start/:end/:limit', function(req, res, next) {
 			parsedBody = JSON.parse(body)["airSearchRsp"];
 			var sliceMap = parsedBody["sliceMap"];
 			var segmentMap = parsedBody["segmentMap"];
+			var itineraryPricing = parsedBody["pricedItinerary"];
 			
 			var segments = _.map(segmentMap, function(segment) {
 				return {
@@ -36,9 +37,17 @@ router.get('/flights/:from/:to/:start/:end/:limit', function(req, res, next) {
 				}
 			});
 			
+			var itineraries = _.map(itineraryPricing, function(itinerary) {
+				return {
+					'id': itinerary.slice[0].uniqueSliceId,
+					'fare': itinerary.pricingInfo.totalFare
+				};
+			});
+
+			
 			var flights = _.map(sliceMap, function(slice) {
 				
-				
+				console.log(_.filter(itineraries, {'id': slice.uniqueSliceId})[0].fare);
 				var fullSegment = [];
 				var flightduration = 0;
 				for (var i = 0; i < slice.segment.length; i++) {
@@ -49,7 +58,9 @@ router.get('/flights/:from/:to/:start/:end/:limit', function(req, res, next) {
 					}, this);
 				}
 				return {
+					'id': slice.uniqueSliceId,
 					'layoverTime': slice.duration - flightduration,
+					'cost': _.filter(itineraries, {'id': slice.uniqueSliceId})[0].fare,
 					'tripSegment': fullSegment
 				}
 			});
@@ -83,24 +94,26 @@ router.get('/hotels/:coordinates/:start/:end', function(req, res, next) {
 	var end = req.params.end;
 
 	request('http://priceline.com/api/hotelretail/listing/v3/'+coordinates+'/'+start+'/'+end+'/1/50?minStars=3&minGuestRating=6&sort=2', function(error, response, body){
-		var hotelResp = JSON.parse(body);
-		
-		var sortedPrice = hotelResp["priceSorted"];
-		var availableHotels = [];
-		for(var i = 0; i < sortedPrice.length; i++) {
-			if(hotelResp["hotels"][sortedPrice[i]].remainingRooms > 0) {
-				availableHotels.push(sortedPrice[i]);
+		if(!error && response.statusCode == 200) {
+			var hotelResp = JSON.parse(body);
+			
+			var sortedPrice = hotelResp["priceSorted"];
+			var availableHotels = [];
+			for(var i = 0; i < sortedPrice.length; i++) {
+				if(hotelResp["hotels"][sortedPrice[i]].remainingRooms > 0) {
+					availableHotels.push(sortedPrice[i]);
+				}
 			}
+			var firstElement = hotelResp["hotels"][availableHotels[0]];
+			res.send({
+				'name': firstElement.hotelName,
+				'price': firstElement.merchPrice,
+				'overallRating': firstElement.overallRatingScore,
+				'address': firstElement.address,
+				'image': firstElement.thumbnailURL,
+				'amenities': firstElement.amenities
+			});
 		}
-		var firstElement = hotelResp["hotels"][availableHotels[0]];
-		res.send({
-			'name': firstElement.hotelName,
-			'price': firstElement.merchPrice,
-			'overallRating': firstElement.overallRatingScore,
-			'address': firstElement.address,
-			'image': firstElement.thumbnailURL,
-			'amenities': firstElement.amenities
-		});
 	});
 
 });
