@@ -12,7 +12,7 @@ jQuery(document).ready(function() {
     });
     
     $("#next").click(function(){
-        $("html").load("");
+        $("html").load("/plan");
     });
     
     
