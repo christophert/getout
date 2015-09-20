@@ -82,7 +82,15 @@ router.get('/hotels/:coordinates/:start/:end', function(req, res, next) {
 		var hotelResp = JSON.parse(body);
 		
 		var sortedPrice = hotelResp["priceSorted"];
-		res.send(sortedPrice);
+		var firstElement = hotelResp[sortedPrice[0]];
+		res.send({
+			'name': firstElement.hotelName,
+			'price': firstElement.merchPrice,
+			'overallRating': firstElement.overallRatingScore,
+			'address': firstElement.address,
+			'image': firstElement.thumbnailURL,
+			'amenities': firstElement.amenities
+		});
 	});
 
 });
@@ -92,7 +100,7 @@ router.get('/places/:loc/:query', function(req, res, next) {
 	var query = req.params.query;
 	var place = [];
 	var rand;
-
+	
 	request('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+query+' in '+loc+"&key="+configuration.gmaps.API_KEY, function(error, response, body){
 			var stuff = JSON.parse(body)["results"];
 			rand = Math.floor(Math.random() * stuff.length);
@@ -101,7 +109,7 @@ router.get('/places/:loc/:query', function(req, res, next) {
 			res.send({
 				'name': stuff[rand].name,
 				'address': stuff[rand].formatted_address
-			})
+			});
 	});
 
 });
