@@ -14,18 +14,13 @@ var getUrlParam = function GetURLParameter(sParam) {
 }
 
 var fromLoc = "ithaca"
-var to;
-if(!getUrlParam('loc')) {
-	to = 'san francisco';
-}
-else {
-	to = getUrlParam('loc');
-}
+var to = getUrlParam('loc');
 var howlong = getUrlParam('time');
 
 $.ajax({
 	type: "GET",
-	url: "https://aggregate.gogogogo.co/yolo/yolo/"+howlong+"/"+fromLoc+"/"+to,
+	//url: "https://aggregate.gogogogo.co/yolo/yolo/"+howlong+"/"+fromLoc+"/"+to,
+	url: "https://aggregate.gogogogo.co/yolo/yolo/5/rochester/pittsburgh",
 	timeout: 10000,
 	success: function(r) {
 		console.log(r);
