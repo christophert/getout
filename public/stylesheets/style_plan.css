@@ -15,6 +15,15 @@ a {
     padding:10px;
 }
 
+#header{
+    background:#75E5D4;
+    text-align:center;
+    Font-size:80px;
+    padding:15px;
+    border-radius:10px;
+    margin:15px;
+}
+
 #tab_holder{
     font-family: 'Muli', sans-serif;
     margin: 0 auto;
