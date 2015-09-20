@@ -94,8 +94,6 @@ router.get('/places/:loc/:query', function(req, res, next) {
 	var rand;
 
 	request('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+query+' in '+loc+"&key="+configuration.gmaps.API_KEY, function(error, response, body){
-			console.log(error);
-			console.log(response);
 			var stuff = JSON.parse(body)["results"];
 			rand = (Math.random()*25)%(stuff.length);
 			console.log(stuff);
