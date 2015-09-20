@@ -70,6 +70,10 @@ $.ajax({
 			$("p#fname2").html(eat.name);
 			$("p#faddress2").html(eat.address);
 		});
+		var cost = r.totalCost;
+		$("p#price").ready(function() {
+			$("p#price").html(cost);
+		})
 		
 	},
 	error: function(xhr, textStatus, errorThrown) {
