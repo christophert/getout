@@ -16,6 +16,10 @@
     width:768px;
     margin:  auto;
 }
+
+#footer p{
+    font-size:80px;
+}
 #header{
     background:#75E5D4;
     text-align:center;
