@@ -56,13 +56,13 @@ a {
     width:150px;
     min-height:150px;
     background: rgb(255,255,255);
-    margin:5px;
+    padding:15px;
     float left;
 }
 
 .tile_content-airplane, .tile_content-hotel, .tile_content-food, .tile_content-poi,
 .tile_content{
-    width:558px; /*calculates width based on total-icon size*/
+    width:568px; /*calculates width based on total-icon size*/
     height:100%;
     float left;
 }
