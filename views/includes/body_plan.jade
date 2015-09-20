@@ -1,35 +1,88 @@
 //- includes body_plan.jade
 #wrapper.container
     // 0 - airplane, 1 - hotel, 2 - food, 3 - poi
-    mixin tile(x)
+    mixin tile(x,y)
         case x
             when 0
-                div.tile-airplane
+                div.y.tile-airplane
                     div.tile_icon-airplane
                     div.tile_content-airplane
+                        div.top
+                            p Flight ID:
+                            p#flightId
+                            p Airline:
+                            p#airline
+                            p Flight #:
+                            p#fltno
+                        div.middle
+                            p Time of Departure:
+                            p#depart
+                        div.bottom
+                            p Arival @ Destination:
+                            p#arrival
+                        
             when 1
-                div.tile-hotel
+                div.y.tile-hotel
                     div.tile_content-hotel
+                        div.top
+                            p Name:
+                            p#name
+                            p Rating:
+                            p#overallRating
+                        div.middle
+                            p Address:
+                            p#addressLine1
+                        div.bottom
+                            p City:
+                            p#cityName
+                            p#stateCode
                     div.tile_icon-hotel
             when 2
-                div.tile-food
+                div.y.tile-food
                     div.tile_icon-food
                     div.tile_content-food
+                        div.top
+                            p Name:
+                            p#fname
+                        div.middle
+                            p Address:
+                            p#faddress
+                        div.bottom
             when 3
-                div.tile-poi
+                div.y.tile-poi
                     div.tile_content-poi
+                        div.top
+                            p Name:
+                            p#pname
+                        div.middle
+                            p Address:
+                            p#paddress
+                        div.bottom
                     div.tile_icon-poi
             default
-                div.tile-hotel
+                div.y.tile-hotel
                     div.tile_content-hotel
+                        div.top
+                            p Name:
+                            p#name
+                            p Rating:
+                            p#overallRating
+                        div.middle
+                            p Address:
+                            p#addressLine1
+                        div.bottom
+                            p City:
+                            p#cityName
+                            p#stateCode
                     div.tile_icon-hotel
     div#tab_holder
-        +tile(0)
-        +tile(1)
-        +tile(2)
-        +tile(3)
-        +tile(2)
-        +tile(3)
-        +tile(2)
-        +tile(1)
-        +tile(0)
+        +tile(0,0)
+        +tile(1,0)
+        +tile(2,0)
+        +tile(3,0)
+        +tile(1,1)
+        +tile(2,1)
+        +tile(3,1)
+        +tile(2,2)
+        +tile(1,2)
+        +tile(0,1)
