@@ -14,7 +14,7 @@ router.get('/flights/:from/:to/:start/:end/:limit', function(req, res, next) {
 	
 	var parsedBody;
 	var jsonUrl = 'http://static.letsgo.woooooo.science/flights/outbound.json';
-	var endpointUrl = 'https://www.priceline.com/pws/v0/air/search/'+leaveFrom+'-'+goTo+'-'+start+'/'+goTo+'-'+leaveFrom+'-'+end+'/1';
+	var endpointUrl = 'https://www.priceline.com/pws/v0/air/search/'+leaveFrom+'-'+goTo+'-'+start+'/'+goTo+'-'+leaveFrom+'-'+end+'/1?direction=inbound';
 	
 	function parseBody(err, resp, body) {
 		if(!err && resp.statusCode == 200) {
