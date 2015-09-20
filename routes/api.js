@@ -10,7 +10,7 @@ router.get('/flights/:from/:to/:start/:end', function(req, res, next) {
 	var end = req.params.end;
 	
 	var parsedBody;
-	var jsonUrl = 'http://static.letsgo.woooooo.science/json.json';
+	var jsonUrl = 'http://static.letsgo.woooooo.science/flights/outbound.json';
 	
 	function parseBody(err, resp, body) {
 		if(!err && resp.statusCode == 200) {
@@ -69,21 +69,19 @@ router.get('/flights/:from/:to/:start/:end', function(req, res, next) {
 //Query http link
 //  receive JSON
 //    parse usable data into js array
-router.get('/hotels/:state/:city', function(req, res, next) {
-	var city = req.params.city;
-	var state = req.params.state;
+router.get('/hotels/:coordinates/:start/:end', function(req, res, next) {
+	var coordinates = req.params.coordinates;
+	var start = req.params.start;
+	var end = req.params.end;
 	var searchRes = [];
 	var hotel;
 	var cityID;
 
-	request('http://www.priceline.com/svcs/ac/index/hotels/'+city, function(error, response, body){
-		searchRes = JSON.parse(body)["searchItems"];		
-		//cityID = _.pluck(_.filter(searchRes, {'stateCode': state}), 'cityID')[0];//getting dat cityID
-
-		request('http://priceline.com/api/hotelretail/listing/v3/?cityId='+cityID+"&minStars=3&sort=2", function(error, response, body){
-			searchRes = JSON.parse(body)["hotels"][0]; //first element should be cheapest hotel w/ at least 3 stars
-			
-		});
+	request('http://priceline.com/api/hotelretail/listing/v3/'+coordinates+'/'+start+'/'+end+'/1/50?minStars=3&sort=2', function(error, response, body){
+		var hotelResp = JSON.parse(body);
+		
+		var sortedPrice = hotelResp["priceSorted"];
+		res.send(sortedPrice);
 	});
 
 });
