@@ -4,7 +4,7 @@
 
 $.ajax({
 	type: "GET",
-	url: "http://aggregate.gogogogo.co/yolo/yolo/5/rochester/pittsburgh",
+	url: "https://aggregate.gogogogo.co/yolo/yolo/5/rochester/pittsburgh",
 	timeout: 10000,
 	success: function(r) {
 		console.log(r);
