@@ -95,7 +95,6 @@ router.get('/hotels/:coordinates/:start/:end', function(req, res, next) {
 router.get('/places/:loc/:query', function(req, res, next) {
 	var loc = req.params.loc;
 	var query = req.params.query;
-	var place = [];
 	var rand;
 	
 	request('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+query+' in '+loc+"&key="+configuration.gmaps.API_KEY, function(error, response, body){
