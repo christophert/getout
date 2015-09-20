@@ -92,6 +92,12 @@ router.get('/places/:loc/:query', function(req, res, next) {
 	var query = req.params.query;
 	var place = [];
 	var rand;
+	
+	function getPhoto(var photoRef){
+		request('http://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference='+photoRef+'&key='+configuration.gmaps.API_KEY, function(error, response, body){
+			return body;
+		}		
+	}
 
 	request('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+query+' in '+loc+"&key="+configuration.gmaps.API_KEY, function(error, response, body){
 			var stuff = JSON.parse(body)["results"];
@@ -100,7 +106,8 @@ router.get('/places/:loc/:query', function(req, res, next) {
 			// console.log(stuff[rand]);
 			res.send({
 				'name': stuff[rand].name,
-				'address': stuff[rand].formatted_address
+				'address': stuff[rand].formatted_address,
+				'image': getPhoto(stuff[rand]["photos"][0].photo_reference);
 			})
 	});
 
