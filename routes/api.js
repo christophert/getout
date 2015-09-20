@@ -74,15 +74,12 @@ router.get('/hotels/:coordinates/:start/:end', function(req, res, next) {
 	var coordinates = req.params.coordinates;
 	var start = req.params.start;
 	var end = req.params.end;
-	var searchRes = [];
-	var hotel;
-	var cityID;
 
-	request('http://priceline.com/api/hotelretail/listing/v3/'+coordinates+'/'+start+'/'+end+'/1/50?minStars=3&sort=2', function(error, response, body){
+	request('http://priceline.com/api/hotelretail/listing/v3/'+coordinates+'/'+start+'/'+end+'/1/50?minStars=3&minGuestRating=6&sort=2', function(error, response, body){
 		var hotelResp = JSON.parse(body);
 		
 		var sortedPrice = hotelResp["priceSorted"];
-		var firstElement = hotelResp[sortedPrice[0]];
+		var firstElement = hotelResp["hotels"][sortedPrice[0]];
 		res.send({
 			'name': firstElement.hotelName,
 			'price': firstElement.merchPrice,
