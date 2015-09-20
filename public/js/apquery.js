@@ -19,12 +19,14 @@ var howlong = getUrlParam('time');
 
 if($("#thisshouldonlybeavailableonplan").length) {
 	$("#thisshouldonlybeavailableonplan").ready(function() {
+
 		$.ajax({
 			type: "GET",
 			url: "https://aggregate.gogogogo.co/yolo/yolo/"+howlong+"/"+fromLoc+"/"+to,
 			//url: "https://aggregate.gogogogo.co/yolo/yolo/5/rochester/pittsburgh",
 			success: function(r) {
 				console.log(r);
+				$("div#header").html("Your trip from " + r.from + " to " + r.to + "!");
 				var tripsegment = r.flights[0].tripSegment;
 				$("#tag_holder div:nth-of-type(1)").ready(function() {
 					$("p#flightId").html(tripsegment[0][0].flightID);
