@@ -54,20 +54,20 @@ $.ajax({
 		
 		var eat2 = r.places.food[1];
 		$("#tag_holder div:nth-of-type(6)").ready(function() {
-			$("p#fname1").html(eat.name);
-			$("p#faddress1").html(eat.address);
+			$("p#fname1").html(eat2.name);
+			$("p#faddress1").html(eat2.address);
 		});
 		
 		var poi2 = r.places.poi[1];
 		$("#tag_holder div:nth-of-type(7)").ready(function() {
-			$("p#pname1").html(poi.name);
-			$("p#paddress1").html(poi.address);
+			$("p#pname1").html(poi2.name);
+			$("p#paddress1").html(poi2.address);
 		});
 		
 		var eat3 = r.places.food[2];
 		$("#tag_holder div:nth-of-type(8)").ready(function() {
-			$("p#fname2").html(eat.name);
-			$("p#faddress2").html(eat.address);
+			$("p#fname2").html(eat3.name);
+			$("p#faddress2").html(eat3.address);
 		});
 		var cost = r.totalCost;
 		$("p#price").ready(function() {
