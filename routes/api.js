@@ -98,9 +98,10 @@ router.get('/places/:loc/:query', function(req, res, next) {
 			rand = Math.floor(Math.random() * stuff.length);
 			// console.log(rand + " length of array is " + stuff.length);
 			// console.log(stuff[rand]);
-			place.push(stuff[rand].name);
-			place.push(stuff[rand].formatted_address);
-			res.send(place);
+			res.send({
+				'name': stuff[rand].name,
+				'address': stuff[rand].formatted_address
+			})
 	});
 
 });
