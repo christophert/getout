@@ -124,15 +124,17 @@ router.get('/places/:loc/:query', function(req, res, next) {
 	
 	request('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+query+' in '+loc+"&key="+configuration.gmaps.API_KEY, function(error, response, body){
 			if(!error && response.statusCode == 200 && response.status!="ZERO") {
+				var ret = []
 				var stuff = JSON.parse(body)["results"];
 				rand = Math.floor(Math.random() * stuff.length);
 				// console.log(rand + " length of array is " + stuff.length);
-				if(stuff[rand]){
-					res.send({
+				if(stuff[rand] && ret.length < 3){
+					ret.push({
 						'name': stuff[rand].name,
 						'address': stuff[rand].formatted_address,
 						'icon': stuff[rand].icon
 					});
+					rand = Math.floor(Math.random() * stuff.length);
 				}
 			} else {
 				res.send({
