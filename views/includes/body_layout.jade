@@ -6,12 +6,7 @@
         br
         form#next.input-group.input-group-lg.hidden(name="form", onsubmit="return numOfDaysForm()")
             input.form-control(name="input", type="text", placeholder="To Where?", aria-describedby="sizing-addon")
-            span.input-group-btn
-                button.btn.btn-default(type="submit")
-                    span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
-            br
-            p#sub1.hidden For
-            input.form-control(name="input", type="text", placeholder="How long? (Days)", aria-describedby="sizing-addon")
+            input.form-control(name="input2", type="text", placeholder="How long? (Days)", aria-describedby="sizing-addon")
             span.input-group-btn
                 button#trigger.btn.btn-default(type="button")
                     span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
