@@ -17,8 +17,13 @@ $.ajax({
 			$("p#arrival").html(tripsegment[1][0].arrival);
 			
 		});
+		var hotel = r.hotel;
 		$("#tag_holder div:nth-of-type(2)").ready(function() {
-			// $("p#name")
+			$("p#name").html(hotel.name);
+			$("p#overallRating").html(hotel.overallRating);
+			$("p#addressLine1").html(hotel.address.addressLine1);
+			$("p#cityName").html(hotel.address.cityName);
+			$("p#stateCode").html(hotel.address.stateCode);
 		});
 	},
 	error: function(xhr, textStatus, errorThrown) {
