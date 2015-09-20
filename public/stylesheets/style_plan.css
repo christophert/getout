@@ -29,6 +29,10 @@ a {
     border-radius:10px;
     padding:25px 0px;
 }
+#tab_holder div{
+    display:block;
+}
+}
 
 .tile{
     width:100%;
