@@ -10,7 +10,7 @@ $("#tag_holder div:nth-of-type(1)").ready(function() {
 		timeout: 10000,
 		success: function(r) {
 			console.log(r.flights[0]);
-			$.each(r.flights[0], function(i, flight) {
+			$.each(r.flights[0].tripSegment, function(i, flight) {
 				console.log(flight);
 			});
 		},
