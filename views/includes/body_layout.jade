@@ -4,9 +4,9 @@
         p Let's go
         p#sub You need a break!
         br
-        form.input-group.input-group-lg(name="form", onsubmit="return numOfDaysForm()")
+        form.input-group.input-group-lg(name="form", onsubmit="return numOfDaysForm()", action"plan")
             input.form-control(name="input", type="text", placeholder="To Where?", aria-describedby="sizing-addon")
             input.form-control(name="input", type="text", placeholder="How long? (Days)", aria-describedby="sizing-addon")
             span.input-group-btn
-                button#trigger.btn.btn-default(type="submit", onclick="location.herf='/plan';")
+                button#trigger.btn.btn-default(type="submit")
                     span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
