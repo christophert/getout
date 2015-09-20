@@ -1,13 +1,36 @@
 //- includes body_plan.jade
 #wrapper.container
+    // 0 - airplane, 1 - hotel, 2 - food, 3 - poi
+    mixin tile(x)
+        case x
+            when 0
+                div.tile-airplane
+                    div.tile_icon-airplane
+                    div.tile_content-airplane
+            when 1
+                div.tile-hotel
+                    div.tile_content-hotel
+                    div.tile_icon-hotel
+            when 2
+                div.tile-food
+                    div.tile_icon-food
+                    div.tile_content-food
+            when 3
+                div.tile-poi
+                    div.tile_content-poi
+                    div.tile_icon-poi
+            default
+                div.tile-hotel
+                    div.tile_content-hotel
+                    div.tile_icon-hotel
+        
     div#tab_holder
-    div
-        block Airplane
-    div
-        block Hotel
-        block Food
-        Block Poi
-        Block Food
-        Block Poi
-        Block Food
-        Block Airplane
+        tile(0)
+        tile(1)
+        tile(2)
+        tile(3)
+        tile(2)
+        tile(3)
+        tile(2)
+        tile(1)
+        tile(0)
