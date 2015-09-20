@@ -91,8 +91,9 @@ router.get('/hotels/:coordinates/:start/:end', function(req, res, next) {
 	var coordinates = req.params.coordinates;
 	var start = req.params.start;
 	var end = req.params.end;
-	if(start instanceof undefined || end instanceof undefined)
+	if(start instanceof undefined || end instanceof undefined) {
 		return -1;
+	}
 
 	request('http://priceline.com/api/hotelretail/listing/v3/'+coordinates+'/'+start+'/'+end+'/1/50?minStars=3&minGuestRating=6&sort=2', function(error, response, body){
 		if(!error && response.statusCode == 200) {
