@@ -88,4 +88,23 @@ router.get('/hotels/:state/:city', function(req, res, next) {
 
 });
 
+router.get('/places/:loc/:query', function(req, res, next) {
+	var loc = req.params.loc;
+	var query = req.params.query;
+	var place = [];
+	var rand;
+
+	request('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+query+' in '+loc+"key="+process.env.GMAPS_KEY, function(error, response, body){
+			console.log(error);
+			console.log(response);
+			var stuff = JSON.parse(body)["results"];
+			rand = (Math.random()*25)%(stuff.length);
+			console.log(stuff);
+			place.put(stuff[rand]["name"]);
+			place.put(stuff[rand]["formatted_address"]);
+			res.send(place);
+	});
+
+});
+
 module.exports = router;
