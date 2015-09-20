@@ -1,7 +1,5 @@
 //query backend API
 
-
-var processingAJAX = 
 	
 
 $.ajax({
@@ -27,10 +25,3 @@ $.ajax({
 		return textStatus;
 	}
 });
-
-
-	$.ajax({
-		type: "GET",
-		url: "http://aggregate.gogogogo.co/yolo/yolo/"
-	})
-})
