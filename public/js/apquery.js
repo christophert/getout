@@ -12,4 +12,4 @@ $("#tag_holder div:nth-of-type(1)").ready(function() {
 		}
 	});
 	// $("p#flightId").html()
-}
+});
