@@ -10,7 +10,7 @@ jQuery(document).ready(function() {
         e.preventDefault();
     });
     
-    $("button").click(function(){
+    $("#next").click(function(){
         $("html").load("");
     });
     
