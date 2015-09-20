@@ -115,7 +115,7 @@ router.get('/places/:loc/:query', function(req, res, next) {
 			res.send({
 				'name': stuff[rand].name,
 				'address': stuff[rand].formatted_address,
-				'image': getPhoto(stuff[rand]["photos"][0].photo_reference)
+				'image': getPhoto(stuff[rand]["photos"].photo_reference)
 			});
 	});
 
