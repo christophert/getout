@@ -9,7 +9,7 @@ a {
 }
 
 #wrapper{
-    background: url(../images/city.jpg) no-repeat center bottom fixed;
+    background: url(../images/lake.jpg) no-repeat center bottom fixed;
     background-size: cover;
     width:100%;
     padding:10px;
@@ -85,17 +85,17 @@ div p:nth-of-type(3){
 
 .tile-airplane{
     float:left;
-    background: rgb(188,184,255);
+    background:#81FFEB;
     &nbsp;
 }
 .tile_icon-airplane{
     float:left;
-    background: rgb(188,184,255);
+    background:#81FFEB;
     &nbsp;
 }
 .tile_content-airplane{
     float:left;
-    background: rgb(188,184,255);
+    background:#81FFEB;
     &nbsp;
 }
 
@@ -105,17 +105,17 @@ div p:nth-of-type(3){
 
 .tile-hotel{
     float:left;
-    background: rgb(230,255,120);
+    background:#417F76;
     &nbsp;
 }
 .tile_icon-hotel{
     float:left;
-    background: rgb(230,255,120);
+    background:#417F76;
     &nbsp;
 }
 .tile_content-hotel{
     float:left;
-    background: rgb(230,255,120);
+    background:#417F76;
     &nbsp;
 }
 
@@ -125,17 +125,17 @@ div p:nth-of-type(3){
 
 .tile-food{
     float:left;
-    background: rgb(232,108,139);
+    background:#75E5D4;
     &nbsp;
 }
 .tile_icon-food{
     float:left;
-    background: rgb(232,108,139);
+    background:#75E5D4;
     &nbsp;
 }
 .tile_content-food{
     float:left;
-    background: rgb(232,108,139);
+    background:#75E5D4;
     &nbsp;
 }
 
@@ -145,17 +145,17 @@ div p:nth-of-type(3){
 
 .tile-poi{
     float:left;
-    background: rgb(133,232,206);
+    background:#61BFB1;
     &nbsp;
 }
 .tile_icon-poi{
     float:left;
-    background: rgb(133,232,206);
+    background:#61BFB1;
     &nbsp;
 }
 .tile_content-poi{
     float:left;
-    background: rgb(133,232,206);
+    background:#61BFB1;
     &nbsp;
 }
 
