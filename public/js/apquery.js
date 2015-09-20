@@ -11,7 +11,7 @@ $("#tag_holder div:nth-of-type(1)").ready(function() {
 		success: function(r) {
 			console.log(r.flights[0]);
 			$.each(r.flights[0].tripSegment, function(i, flight) {
-				console.log(flight);
+				$("p#flightId").html(flight[0].airline + " " + flight[0].fltno);
 			});
 		},
 		error: function(xhr, textStatus, errorThrown) {
