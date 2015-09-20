@@ -13,8 +13,6 @@ a {
     background-size: cover;
     width:100%;
     height:100%;
-    overflow:hidden;
-    /*min-height:1200px;*/
     padding:10px;
 }
 
@@ -53,7 +51,7 @@ a {
 
 .tile_content-airplane, .tile_content-hotel, .tile_content-food, .tile_content-poi
 .tile_content{
-    width:calc(100%-300px); /*calculates width based on total-icon size*/
+    width:618px; /*calculates width based on total-icon size*/
     height:100%;
     float left;
 }
