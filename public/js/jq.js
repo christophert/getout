@@ -16,5 +16,5 @@ jQuery(document).ready(function() {
     });
     var location = document.getElementsByName('input')[0].value;
     var numOfDays = document.getElementsByName('input')[1].value;
-    $("form").attr("onclick","'/plan?days=' +  numOfDays + '&to=' + location");
+    $("#trigger").attr("onclick","'/plan?days=' +  numOfDays + '&to=' + location");
 });
