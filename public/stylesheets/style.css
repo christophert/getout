@@ -41,6 +41,9 @@ a {
 #content p:nth-of-type(2){
     font-size:10px;
 }
+#content p:nth-of-type(3){
+    font-size:10px;
+}
 
 .hidden{display:none;}
 
@@ -58,5 +61,8 @@ a {
     }
     #content p:nth-of-type(2){
         font-size:25px;
+    }
+    #content p:nth-of-type(3){
+        font-size:10px;
     }
 }
