@@ -1,6 +1,8 @@
 //- includes body_plan.jade
 #wrapper.container
     // 0 - airplane, 1 - hotel, 2 - food, 3 - poi
+        
+    div#tab_holder
     mixin tile(x)
         case x
             when 0
@@ -23,8 +25,6 @@
                 div.tile-hotel
                     div.tile_content-hotel
                     div.tile_icon-hotel
-        
-    div#tab_holder
         tile(0)
         tile(1)
         tile(2)
