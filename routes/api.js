@@ -128,4 +128,22 @@ router.get('/yolo/:days/:from/:to', function(req, res, next) {
 	
 	var flights = request('/api/flights')
 })
+
+router.get('/uber/:startLat/:startLon/:endLat/:endLon', function(req, res, next){
+	var startLat = req.params.startLat;
+	var startLon = req.params.startLon;
+	var endLat = req.params.endLat;
+	var endLon = req.params.endLon;
+	var rideInfo;		
+	
+	request('https://api.uber.com/v1/estimates/price?start_latitude='+startLat+'&start_longitude='+startLon+'&end_latitude='+endLat+'&end_longitude='+endLon+'&server_token='+configuration.uber.API_KEY, function(error, response, body){
+			rideInfo = JSON.parse(body)["prices"][0];
+			res.send({
+				'name': rideInfo.display_name,
+				'costEstimate': rideInfo.estimate,
+				'duration': rideInfo.duration
+			});
+	});
+});
+
 module.exports = router;
