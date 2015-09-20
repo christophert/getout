@@ -125,15 +125,39 @@ router.get('/places/:loc/:query', function(req, res, next) {
 });
 
 router.get('/yolo/:howlong/:from/:to', function(req, res, next) {
-	// var howlong = req.params.howlong;
-	// var now = moment();
-	// var later = moment().add(howlong, 'days');
-	// now = now.format("YYYYMMDD");
-	// later = later.format("YYYYMMDD");
-	// var whereFrom = req.params.from;
-	// var whereTo = req.params.to;
+	var howlong = req.params.howlong;
+	var now = moment();
+	var later = moment().add(howlong, 'days');
+	now = now.format("YYYYMMDD");
+	later = later.format("YYYYMMDD");
+	var whereFrom = req.params.from;
+	var whereTo = req.params.to;
 	
+<<<<<<< HEAD
 	
+	//query for airport code
+	function _toAirportCode(originLoc, _callback) {
+		request('http://www.priceline.com/svcs/ac/index/flights/'+originLoc,function(error, response, body) {
+			if(!error && response.statusCode == 200) {
+				var airportsRaw = JSON.parse(body)["searchItems"];
+				var airports = _.map(airportsRaw, function(airport) {
+					return {
+						'id': airport.id,
+						'name': airport.itemName,
+						'score': airport.score
+					};
+				});
+				// console.log(airports);
+				// console.log(_.max(airports, 'score').id);
+				if(typeof(_callback) == "function") {
+					_callback(_.max(airports, 'score').id);
+				}
+			}
+		});
+	}
+=======
+	// var flights = request('/api/flights')
+
 	// //query for airport code
 	// function _toAirportCode(originLoc, _callback) {
 	// 	request('http://www.priceline.com/svcs/ac/index/flights/'+originLoc,function(error, response, body) {
@@ -154,14 +178,28 @@ router.get('/yolo/:howlong/:from/:to', function(req, res, next) {
 	// 		}
 	// 	});
 	// }
+>>>>>>> f9ee047625f7f76c5ca9abd828b48bdefb9151dd
 	
-	// var fromAirportCode, toAirportCode;
-	// _toAirportCode(whereFrom, function(id) {
-	// 	fromAirportCode = id;
-	// });
-	// _toAirportCode(whereTo, function(id) {
-	// 	toAirportCode = id;
-	// });
+	var fromAirportCode, toAirportCode;
+	_toAirportCode(whereFrom, function(id) {
+		fromAirportCode = id;
+		_toAirportCode(whereTo, function(id) {
+			toAirportCode = id;
+			
+			
+			request('/api/flights/'+fromAirportCode+'/'+toAirportCode+'/'+now+'/'+later, function(error, response, body) {
+				if(!error && response.statusCode == 200) {
+					res.send({
+						'flights': JSON.parse(body)
+					});
+				}
+				else {
+					return error;
+				}
+			});
+	
+		});
+	});
 	
 	
 	// var flights = request('/api/flights/'+fromAirportCode+'/'+toAirportCode+'/'+now+'/'+later, function(error, response, body) {
@@ -172,10 +210,25 @@ router.get('/yolo/:howlong/:from/:to', function(req, res, next) {
 	// 		return error;
 	// 	}
 	// });
-	// res.send({
-	// 	'flights': flights
-	// });
+	
 });
 
+
+router.get('/uber/:startLat/:startLon/:endLat/:endLon', function(req, res, next){
+	var startLat = req.params.startLat;
+	var startLon = req.params.startLon;
+	var endLat = req.params.endLat;
+	var endLon = req.params.endLon;
+	var rideInfo;		
+	
+	request('https://api.uber.com/v1/estimates/price?start_latitude='+startLat+'&start_longitude='+startLon+'&end_latitude='+endLat+'&end_longitude='+endLon+'&server_token='+configuration.uber.API_KEY, function(error, response, body){
+			rideInfo = JSON.parse(body)["prices"][0];
+			res.send({
+				'name': rideInfo.display_name,
+				'costEstimate': rideInfo.estimate,
+				'duration': rideInfo.duration
+			});
+	});
+});
 
 module.exports = router;
