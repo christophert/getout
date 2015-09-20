@@ -50,7 +50,7 @@ a {
 
 .tile_content-airplane, .tile_content-hotel, .tile_content-food, .tile_content-poi,
 .tile_content{
-    width:593px; /*calculates width based on total-icon size*/
+    width:568px; /*calculates width based on total-icon size*/
     height:100%;
     float left;
 }
