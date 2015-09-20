@@ -148,16 +148,24 @@ router.get('/uber/:startLat/:startLon/:endLat/:endLon', function(req, res, next)
 	var startLat = req.params.startLat;
 	var startLon = req.params.startLon;
 	var endLat = req.params.endLat;
-	var endLon = req.params.endLon;
-	var rideInfo;		
+	var endLon = req.params.endLon;		
 	
 	request('https://api.uber.com/v1/estimates/price?start_latitude='+startLat+'&start_longitude='+startLon+'&end_latitude='+endLat+'&end_longitude='+endLon+'&server_token='+configuration.uber.API_KEY, function(error, response, body){
-			rideInfo = JSON.parse(body)["prices"][0];
-			res.send({
-				'name': rideInfo.display_name,
-				'costEstimate': rideInfo.estimate,
-				'duration': rideInfo.duration
-			});
+			if(!error && response.statusCode == 200 && typeof JSON.parse(body)["prices"][0] != 'undefined'){
+				console.log(error + " " + response + " " + body);
+				var rideInfo = JSON.parse(body)["prices"];
+				console.log(rideInfo);
+				res.send({
+					'name': rideInfo[0].display_name,
+					'costEstimate': rideInfo[0].estimate,
+					'duration': rideInfo[0].duration
+				});
+			}
+			else if(JSON.parse(body)["prices"].length == 0){
+				res.send({
+					'available': 0
+				});
+			} 
 	});
 });
 
