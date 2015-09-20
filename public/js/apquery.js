@@ -80,6 +80,7 @@ if($("#thisshouldonlybeavailableonplan").length) {
 					$("p#fltno").html(outboundtrip[0][0].fltno);
 					$("p#depart").html(outboundtrip[0][0].depart);
 					$("p#arrival").html(outboundtrip[1][0].arrival);
+				});
 				var cost = r.totalCost;
 				$("p#price").ready(function() {
 					$("p#price").html(cost);
