@@ -163,9 +163,7 @@ router.get('/yolo/:howlong/:from/:to', function(req, res, next) {
 			
 			request('/api/flights/'+fromAirportCode+'/'+toAirportCode+'/'+now+'/'+later, function(error, response, body) {
 				if(!error && response.statusCode == 200) {
-					res.send({
-						'flights': JSON.parse(body)
-					});
+					console.log(JSON.parse(body));
 				}
 				else {
 					return error;
@@ -174,6 +172,7 @@ router.get('/yolo/:howlong/:from/:to', function(req, res, next) {
 	
 		});
 	});
+	
 	
 	
 	// var flights = request('/api/flights/'+fromAirportCode+'/'+toAirportCode+'/'+now+'/'+later, function(error, response, body) {
