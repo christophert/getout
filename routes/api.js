@@ -128,7 +128,7 @@ router.get('/places/:loc/:query', function(req, res, next) {
 				var stuff = JSON.parse(body)["results"];
 				rand = Math.floor(Math.random() * stuff.length);
 				// console.log(rand + " length of array is " + stuff.length);
-				if(stuff[rand] && ret.length < 3){
+				while(stuff[rand] && ret.length < 3){
 					ret.push({
 						'name': stuff[rand].name,
 						'address': stuff[rand].formatted_address,
@@ -136,6 +136,7 @@ router.get('/places/:loc/:query', function(req, res, next) {
 					});
 					rand = Math.floor(Math.random() * stuff.length);
 				}
+				res.send(ret);
 			} else {
 				res.send({
 					'status': 'ERR_NORESULT'
