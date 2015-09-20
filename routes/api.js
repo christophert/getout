@@ -81,7 +81,7 @@ router.get('/flights/:from/:to/:start/:end/:limit', function(req, res, next) {
 		}
 	}
 	
-	request(endpointUrl, parseBody);
+	request(jsonUrl, parseBody);
 });
 
 //Query http link
