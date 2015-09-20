@@ -2,6 +2,7 @@ var express = require('express');
 var _ = require('lodash');
 var router = express.Router();
 var request = require('request');
+var moment = require('moment');
 var configuration = require('../config.json');
 
 router.get('/flights/:from/:to/:start/:end', function(req, res, next) {
@@ -12,6 +13,7 @@ router.get('/flights/:from/:to/:start/:end', function(req, res, next) {
 	
 	var parsedBody;
 	var jsonUrl = 'http://static.letsgo.woooooo.science/flights/outbound.json';
+	var endpointUrl = 'https://www.priceline.com/pws/v0/air/search/'+leaveFrom+'-'+goTo+'-'+start+'/'+goTo+'-'+leaveFrom+'-'+end+'/1';
 	
 	function parseBody(err, resp, body) {
 		if(!err && resp.statusCode == 200) {
@@ -122,12 +124,60 @@ router.get('/places/:loc/:query', function(req, res, next) {
 
 });
 
-router.get('/yolo/:days/:from/:to', function(req, res, next) {
-	var days = req.params.days;
-	var whereToGo = req.params.whereToGo;
+router.get('/yolo/:howlong/:from/:to', function(req, res, next) {
+	// var howlong = req.params.howlong;
+	// var now = moment();
+	// var later = moment().add(howlong, 'days');
+	// now = now.format("YYYYMMDD");
+	// later = later.format("YYYYMMDD");
+	// var whereFrom = req.params.from;
+	// var whereTo = req.params.to;
 	
-	var flights = request('/api/flights')
-})
+	// var flights = request('/api/flights')
+
+	// //query for airport code
+	// function _toAirportCode(originLoc, _callback) {
+	// 	request('http://www.priceline.com/svcs/ac/index/flights/'+originLoc,function(error, response, body) {
+	// 		if(!error && response.statusCode == 200) {
+	// 			var airportsRaw = JSON.parse(body)["searchItems"];
+	// 			var airports = _.map(airportsRaw, function(airport) {
+	// 				return {
+	// 					'id': airport.id,
+	// 					'name': airport.itemName,
+	// 					'score': airport.score
+	// 				};
+	// 			});
+	// 			// console.log(airports);
+	// 			// console.log(_.max(airports, 'score').id);
+	// 			if(typeof(_callback) == "function") {
+	// 				_callback(_.max(airports, 'score').id);
+	// 			}
+	// 		}
+	// 	});
+	// }
+	
+	// var fromAirportCode, toAirportCode;
+	// _toAirportCode(whereFrom, function(id) {
+	// 	fromAirportCode = id;
+	// });
+	// _toAirportCode(whereTo, function(id) {
+	// 	toAirportCode = id;
+	// });
+	
+	
+	// var flights = request('/api/flights/'+fromAirportCode+'/'+toAirportCode+'/'+now+'/'+later, function(error, response, body) {
+	// 	if(!error && response.statusCode == 200) {
+	// 		return body;
+	// 	}
+	// 	else {
+	// 		return error;
+	// 	}
+	// });
+	// res.send({
+	// 	'flights': flights
+	// });
+});
+
 
 router.get('/uber/:startLat/:startLon/:endLat/:endLon', function(req, res, next){
 	var startLat = req.params.startLat;
