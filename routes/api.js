@@ -97,8 +97,8 @@ router.get('/places/:loc/:query', function(req, res, next) {
 			var stuff = JSON.parse(body)["results"];
 			rand = (Math.random()*25)%(stuff.length);
 			console.log(stuff);
-			place.put(stuff[rand]["name"]);
-			place.put(stuff[rand]["formatted_address"]);
+			place.put(stuff[rand].name);
+			place.put(stuff[rand].formatted_address);
 			res.send(place);
 	});
 
