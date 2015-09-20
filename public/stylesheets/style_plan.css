@@ -73,6 +73,9 @@ div p{
     float:left;
     text-align:left;
 }
+div p:nth-of-type(1){
+    clear:both;
+}
 
 /*AIRPLANE*/
 
