@@ -21,7 +21,7 @@ $.ajax({
 	type: "GET",
 	url: "https://aggregate.gogogogo.co/yolo/yolo/"+howlong+"/"+fromLoc+"/"+to,
 	//url: "https://aggregate.gogogogo.co/yolo/yolo/5/rochester/pittsburgh",
-	timeout: 10000,
+	timeout: 20000,
 	success: function(r) {
 		console.log(r);
 		var tripsegment = r.flights[0].tripSegment;
