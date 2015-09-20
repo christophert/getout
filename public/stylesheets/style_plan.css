@@ -101,7 +101,7 @@ div p:nth-of-type(3){
 }
 .tile_icon-airplane{
     float:left;
-    background:#81FFEB;
+    background: url(../images/airplane.png);
     &nbsp;
 }
 .tile_content-airplane{
@@ -121,7 +121,7 @@ div p:nth-of-type(3){
 }
 .tile_icon-hotel{
     float:left;
-    background:#417F76;
+    background: url(../images/home.png);
     &nbsp;
 }
 .tile_content-hotel{
@@ -141,7 +141,7 @@ div p:nth-of-type(3){
 }
 .tile_icon-food{
     float:left;
-    background:#75E5D4;
+    background: url(../images/food.png);
     &nbsp;
 }
 .tile_content-food{
@@ -161,7 +161,7 @@ div p:nth-of-type(3){
 }
 .tile_icon-poi{
     float:left;
-    background:#61BFB1;
+    background: url(../images/poi.png);
     &nbsp;
 }
 .tile_content-poi{
