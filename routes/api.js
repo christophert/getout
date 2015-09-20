@@ -92,7 +92,7 @@ router.get('/places/:loc/:query', function(req, res, next) {
 	var place = [];
 	var rand;
 
-	request('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+query+' in '+loc+"key="+process.env.GMAPS_KEY, function(error, response, body){
+	request('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+query+' in '+loc+"&key="+process.env.GMAPS_KEY, function(error, response, body){
 			console.log(error);
 			console.log(response);
 			var stuff = JSON.parse(body)["results"];
