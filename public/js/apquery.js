@@ -11,9 +11,10 @@ $("#tag_holder div:nth-of-type(1)").ready(function() {
 		success: function(r) {
 			console.log(r.flights[0]);
 			$.each(r.flights[0].tripSegment, function(i, flight) {
-				$("p#flightId").html(flight[0].flightID + "<br>" + flight[1].flightID);
-				$("p#airline").html(flight[0].airline + "<br>" + flight[1].airline);
-				$("p#fltno").html(flight[0].fltno + "<br>" + flight[1].fltno);
+				console.log(flight);
+				$("p#flightId").html(flight[0].flightID);
+				$("p#airline").html(flight[0].airline);
+				$("p#fltno").html(flight[0].fltno);
 				
 			});
 		},
