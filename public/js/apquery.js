@@ -15,6 +15,7 @@ var processingAJAX = $.ajax({
 	
 $("#tag_holder div:nth-of-type(1)").ready(function() {
 	var resp = processingAJAX;
+	console.log(resp);
 	var fltsegment = resp.responseJSON.flights[0]['tripSegment'][0];
 	$("p#flightId").html(fltsegment[0].airline + " " + fltsegment[0].fltno);
 });
