@@ -30,8 +30,8 @@ a {
     padding:25px 0px;
 }
 #tab_holder div{
-    display:block;
-}
+    margin-top:50px;
+    font-size:25px;
 }
 
 .tile, .tile-airplane, .tile-hotel, .tile-food, .tile-poi{
@@ -44,8 +44,8 @@ a {
     position:absolute;
     top:0px;
     /*square tiles*/
-    width:300px;
-    min-height:300px;
+    width:150px;
+    min-height:150px;
     background: rgba(0,0,0,0.15);
     float left;
 }
