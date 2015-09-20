@@ -5,16 +5,17 @@ var request = require('request');
 var moment = require('moment');
 var configuration = require('../config.json');
 
-router.get('/flights/:from/:to/:start/:end/:limit', function(req, res, next) {
+router.get('/flights/:from/:to/:start/:end/:direction/:limit', function(req, res, next) {
 	var leaveFrom = req.params.from;
 	var goTo = req.params.to;
 	var start = req.params.start;
 	var end = req.params.end;
+	var direction = req.params.direction;
 	var limit = req.params.limit;
 	
 	var parsedBody;
 	var jsonUrl = 'http://static.letsgo.woooooo.science/flights/outbound.json';
-	var endpointUrl = 'https://www.priceline.com/pws/v0/air/search/'+leaveFrom+'-'+goTo+'-'+start+'/'+goTo+'-'+leaveFrom+'-'+end+'/1?direction=inbound';
+	var endpointUrl = 'https://www.priceline.com/pws/v0/air/search/'+leaveFrom+'-'+goTo+'-'+start+'/'+goTo+'-'+leaveFrom+'-'+end+'/1?direction='+direction;
 	
 	function parseBody(err, resp, body) {
 		if(!err && resp.statusCode == 200) {
