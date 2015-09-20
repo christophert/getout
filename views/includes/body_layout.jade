@@ -4,7 +4,7 @@
         p Let's go
         p#sub You need a break!
         br
-        form.input-group.input-group-lg(name="form", onsubmit="return numOfDaysForm()", action"plan")
+        form.input-group.input-group-lg(name="form", onsubmit="return numOfDaysForm()", action"/plan" method="GET")
             input.form-control(name="input", type="text", placeholder="To Where?", aria-describedby="sizing-addon")
             input.form-control(name="input", type="text", placeholder="How long? (Days)", aria-describedby="sizing-addon")
             span.input-group-btn
