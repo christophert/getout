@@ -5,11 +5,12 @@ var request = require('request');
 var moment = require('moment');
 var configuration = require('../config.json');
 
-router.get('/flights/:from/:to/:start/:end', function(req, res, next) {
+router.get('/flights/:from/:to/:start/:end/:limit', function(req, res, next) {
 	var leaveFrom = req.params.from;
 	var goTo = req.params.to;
 	var start = req.params.start;
 	var end = req.params.end;
+	var limit = req.params.limit;
 	
 	var parsedBody;
 	var jsonUrl = 'http://static.letsgo.woooooo.science/flights/outbound.json';
@@ -62,7 +63,11 @@ router.get('/flights/:from/:to/:start/:end', function(req, res, next) {
 			// 	});
 			// 	flights.push(fullSegment);
 			// });
-			res.json(flights);
+			if(limit > 0) {
+				res.json(_.slice(flights, 0, limit));
+			} else {
+				res.json(flights);
+			}
 		}
 	}
 	
