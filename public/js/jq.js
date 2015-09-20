@@ -12,8 +12,7 @@ jQuery(document).ready(function() {
             timeout: 10000,
             cache: false,
             success: function(r) {
-                console.log(r){
-                }
+                // console.log(r){
             }
         });
     });
