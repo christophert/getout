@@ -13,8 +13,8 @@ jQuery(document).ready(function() {
                 // console.log(r){
             }
         });
-    })
+    });
     var location = document.getElementsByName('input')[0].value;
     var numOfDays = document.getElementsByName('input')[1].value;
-    $("#trigger").load("/plan?days=" +  numOfDays + "&to" + location);
+    $("form").attr("action",("/plan?days=" +  numOfDays + "&to=" + location));
 });
