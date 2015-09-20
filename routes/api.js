@@ -74,15 +74,20 @@ router.get('/hotels/:coordinates/:start/:end', function(req, res, next) {
 	var coordinates = req.params.coordinates;
 	var start = req.params.start;
 	var end = req.params.end;
-	var searchRes = [];
-	var hotel;
-	var cityID;
 
-	request('http://priceline.com/api/hotelretail/listing/v3/'+coordinates+'/'+start+'/'+end+'/1/50?minStars=3&sort=2', function(error, response, body){
+	request('http://priceline.com/api/hotelretail/listing/v3/'+coordinates+'/'+start+'/'+end+'/1/50?minStars=3&minGuestRating=6&sort=2', function(error, response, body){
 		var hotelResp = JSON.parse(body);
 		
 		var sortedPrice = hotelResp["priceSorted"];
-		res.send(sortedPrice);
+		var firstElement = hotelResp["hotels"][sortedPrice[0]];
+		res.send({
+			'name': firstElement.hotelName,
+			'price': firstElement.merchPrice,
+			'overallRating': firstElement.overallRatingScore,
+			'address': firstElement.address,
+			'image': firstElement.thumbnailURL,
+			'amenities': firstElement.amenities
+		});
 	});
 
 });
@@ -90,25 +95,23 @@ router.get('/hotels/:coordinates/:start/:end', function(req, res, next) {
 router.get('/places/:loc/:query', function(req, res, next) {
 	var loc = req.params.loc;
 	var query = req.params.query;
-	var place = [];
 	var rand;
 	
-	function getPhoto(var photoRef){
-		request('http://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference='+photoRef+'&key='+configuration.gmaps.API_KEY, function(error, response, body){
-			return body;
-		}		
-	}
-
 	request('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+query+' in '+loc+"&key="+configuration.gmaps.API_KEY, function(error, response, body){
-			var stuff = JSON.parse(body)["results"];
-			rand = Math.floor(Math.random() * stuff.length);
-			// console.log(rand + " length of array is " + stuff.length);
-			// console.log(stuff[rand]);
-			res.send({
-				'name': stuff[rand].name,
-				'address': stuff[rand].formatted_address,
-				'image': getPhoto(stuff[rand]["photos"][0].photo_reference);
-			})
+			if(!error && response.statusCode == 200 && response.status!="ZERO") {
+				var stuff = JSON.parse(body)["results"];
+				rand = Math.floor(Math.random() * stuff.length);
+				// console.log(rand + " length of array is " + stuff.length);
+				res.send({
+					'name': stuff[rand].name,
+					'address': stuff[rand].formatted_address,
+					'icon': stuff[rand].icon
+				});
+			} else {
+				res.send({
+					'status': 'ERR_NORESULT'
+				});
+			}
 	});
 
 });
