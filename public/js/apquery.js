@@ -25,6 +25,16 @@ $.ajax({
 			$("p#cityName").html(hotel.address.cityName);
 			$("p#stateCode").html(hotel.address.stateCode);
 		});
+		var eat = r.places.food;
+		$("#tag_holder div:nth-of-type(3)").ready(function() {
+			$("p#fname").html(eat.name);
+			$("p#faddress").html(eat.address);
+		});
+		var poi = r.places.poi;
+		$("#tag_holder div:nth-of-type(4)").ready(function() {
+			$("p#pname").html(poi.name);
+			$("p#paddress").html(poi.address);
+		});
 	},
 	error: function(xhr, textStatus, errorThrown) {
 		return textStatus;
