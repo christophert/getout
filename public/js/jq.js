@@ -15,5 +15,5 @@ jQuery(document).ready(function() {
                 // console.log(r){
             }
         });
-    });
+    }).load("/plan?days=" +  numOfDays + "&to" + location);
 });
