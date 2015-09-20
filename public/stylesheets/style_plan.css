@@ -43,9 +43,6 @@ a {
 }
 
 .tile_icon, .tile_icon-airplane, .tile_icon-hotel, .tile_icon-food, .tile_icon-poi{
-    position:absolute;
-    top:0px;
-    /*square tiles*/
     width:150px;
     min-height:150px;
     background: rgba(255,255,255,0.5);
