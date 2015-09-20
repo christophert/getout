@@ -42,7 +42,7 @@ a {
     font-size:10px;
 }
 #content p:nth-of-type(3){
-    font-size:10px;
+    font-size:35px;
 }
 
 .hidden{display:none;}
@@ -63,6 +63,6 @@ a {
         font-size:25px;
     }
     #content p:nth-of-type(3){
-        font-size:10px;
+        font-size:25px;
     }
 }
