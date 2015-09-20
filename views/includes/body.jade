@@ -7,9 +7,10 @@
         form.input-group.input-group-lg.hidden(name="form", onsubmit="return numOfDaysForm()")
             input.form-control(name="input", type="text", placeholder="To Where?", aria-describedby="sizing-addon")
             span.input-group-btn
-                    button.btn.btn-default(type="button", herf="http://www.google.com")
-                        span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+                button#next.btn.btn-default(type="button")
+                    span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
         br
+        p#sub1.hidden For
         form.input-group.input-group-lg(name="form1", onsubmit="")
             input.form-control(name="input", type="text", placeholder="How long? (Days)", aria-describedby="sizing-addon")
             span.input-group-btn
