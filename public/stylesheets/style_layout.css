@@ -42,7 +42,7 @@ a {
     font-size:10px;
 }
 #content p:nth-of-type(3){
-    font-size:35px;
+    font-size:5px;
 }
 
 .hidden{display:none;}
