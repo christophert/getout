@@ -2,6 +2,7 @@ var express = require('express');
 var _ = require('lodash');
 var router = express.Router();
 var request = require('request');
+var configuration = require('../config.json');
 
 router.get('/flights/:from/:to/:start/:end', function(req, res, next) {
 	var leaveFrom = req.params.from;
