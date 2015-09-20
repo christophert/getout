@@ -24,7 +24,7 @@ a {
     color: black;
     background: rgb(255,255,255);
     border-radius:10px;
-    padding:25px 0px;
+    padding:25px 25px;
     margin-top:50px;
     height:2800px;
 }
@@ -50,7 +50,7 @@ a {
 
 .tile_content-airplane, .tile_content-hotel, .tile_content-food, .tile_content-poi,
 .tile_content{
-    width:618px; /*calculates width based on total-icon size*/
+    width:598px; /*calculates width based on total-icon size*/
     height:100%;
     float left;
 }
