@@ -6,16 +6,15 @@ jQuery(document).ready(function() {
         var serializedData = $(this).serialize();
         $.ajax({
             type: "POST",
-            url: "http://aggregate.gogogogo.co/""
+            url: "http://aggregate.gogogogo.co/",
             data: serializedData,
             dataType: "json",
             timeout: 10000,
             cache: false,
             success: function(r) {
                 console.log(r){
+                }
             }
-        })
+        });
     });
-    
-    
 });
